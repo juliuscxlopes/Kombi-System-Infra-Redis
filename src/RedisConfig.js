@@ -1,5 +1,6 @@
 //KOMBI-SYSTEM/infra/RedisStream/src
 const Redis = require('ioredis');
+require('dotenv').config();
 
 class RedisConfig {
   constructor() {
