@@ -1,0 +1,22 @@
+services:
+  # O Servidor Redis oficial (Banco de dados)
+  kombi-redis-server:
+    image: redis:7-alpine
+    container_name: redis-msg-center
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    networks:
+      - kombi-network
+    restart: always
+
+  # O seu Gerenciador (O que você acabou de criar o CI/CD)
+  kombi-redis-manager:
+    image: ghcr.io/juliuscxlopes/kombi-redis-manager:latest
+    container_name: redis-manager
+    depends_on:
+      - kombi-redis-server
+    environment:
+      - REDIS_HOST=kombi-redis-server
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    networks:
+      - kombi-network
+    restart: on-failure
