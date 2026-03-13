@@ -25,4 +25,4 @@ jobs:
           context: . 
           push: true
           # Garanta que a tag está em letras minúsculas (padrão do Docker)
-          tags: ghcr.io/${{ github.actor }}/kombi-redis-manager:latest
+          tags: ghcr.io/${{ github.actor }}/kombi-infra-redis-manager:latest
