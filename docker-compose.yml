@@ -8,16 +8,16 @@ services:
       - kombi-network
     restart: always
     ports:
-      - "6379:6379" # <<< ESSA LINHA É CRUCIAL (Expõe o Redis para o Windows)
+      - "6379:6379"
 
-  # O seu Gerenciador (O que você acabou de criar o CI/CD)
+  # O seu Gerenciador
   kombi-redis-manager:
     image: ghcr.io/juliuscxlopes/kombi-redis-manager:latest
     container_name: redis-manager
     depends_on:
       - kombi-redis-server
     environment:
-      - REDIS_HOST=kombi-redis-server
+      - REDIS_HOST=redis-msg-center  # <<< AJUSTADO PARA O NOME DO CONTAINER
       - REDIS_PASSWORD=${REDIS_PASSWORD}
     networks:
       - kombi-network

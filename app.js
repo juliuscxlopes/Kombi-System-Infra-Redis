@@ -16,8 +16,6 @@ async function bootstrap() {
     // Isso transforma esse app no "Painel de Controle" total
     Object.keys(streams).forEach(alias => {
         subscriber.listen(alias, (payload) => {
-            // No futuro, aqui você roteia para o InfluxDB ou Logs
-            //console.log(`📡 [${alias.toUpperCase()}] > Sensor: ${payload.sensor}`);
         });
     });
 
