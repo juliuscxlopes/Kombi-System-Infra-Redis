@@ -12,13 +12,6 @@ async function bootstrap() {
     await redis.client.ping();
     console.log("✅ [REDIS] Memurai/Redis detectado e pronto.");
 
-    // 2. Ativar todos os listeners baseados no StreamRules
-    // Isso transforma esse app no "Painel de Controle" total
-    Object.keys(streams).forEach(alias => {
-        subscriber.listen(alias, (payload) => {
-        });
-    });
-
     console.log("🚀 [CONTROLLER] Monitoramento global ativo.");
 
   } catch (err) {
