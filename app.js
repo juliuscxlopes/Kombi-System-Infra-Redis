@@ -17,7 +17,7 @@ async function bootstrap() {
     Object.keys(streams).forEach(alias => {
         subscriber.listen(alias, (payload) => {
             // No futuro, aqui você roteia para o InfluxDB ou Logs
-            console.log(`📡 [${alias.toUpperCase()}] > Sensor: ${payload.sensor}`);
+            //console.log(`📡 [${alias.toUpperCase()}] > Sensor: ${payload.sensor}`);
         });
     });
 
