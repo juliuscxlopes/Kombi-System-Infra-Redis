@@ -3,9 +3,10 @@ name: Docker Build and Push (Redis)
 on:
   push:
     branches: [ "main" ]
-    # 🎯 FILTRO INDÚSTRIA: Só dispara se houver alteração DENTRO da pasta do Redis
+    # 🎯 FILTRO: Qualquer alteração de arquivo neste repositório dispara o build
     paths:
-      - 'Infra/Redis/**' 
+      - '**'
+      - '!README.md' # Ignora apenas alterações no README para poupar build
 
 jobs:
   build-and-push:
@@ -24,8 +25,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
-          # 🔥 O SEGREDO ESTÁ AQUI: Aponta pro caminho da subpasta do Redis
-          context: ./Infra/Redis 
-          file: ./Infra/Redis/Dockerfile
+          # ✅ Como a raiz do repo já é a pasta do Redis, o contexto é ponto (.)
+          context: . 
+          file: ./Dockerfile
           push: true
           tags: ghcr.io/${{ github.actor }}/kombi-infra-redis-manager:latest
