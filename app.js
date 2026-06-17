@@ -1,7 +1,6 @@
 // App.js
 const redis = require('./src/RedisConfig');
 const { streams } = require('./src/StreamRules');
-const subscriber = require('./src/StreamSubscriber');
 
 
 async function bootstrap() {
