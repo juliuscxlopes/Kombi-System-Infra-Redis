@@ -12,7 +12,7 @@ services:
 
   # O seu Gerenciador
   kombi-redis-manager:
-    image: ghcr.io/juliuscxlopes/kombi-redis-manager:latest
+    image: ghcr.io/juliuscxlopes/kombi-infra-redis-manager:latest
     container_name: redis-manager
     depends_on:
       - kombi-redis-server
