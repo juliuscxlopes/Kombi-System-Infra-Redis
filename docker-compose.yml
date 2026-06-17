@@ -13,7 +13,7 @@ services:
   # O seu Gerenciador
   kombi-redis-manager:
     build:
-      context: ./REDIS # Caminho até essa pasta da imagem
+      context: ./Redis # Caminho até essa pasta da imagem
       dockerfile: Dockerfile
   #  image: ghcr.io/juliuscxlopes/kombi-redis-manager:latest
     container_name: redis-manager
