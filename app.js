@@ -12,6 +12,7 @@ async function bootstrap() {
     console.log("✅ [REDIS] Memurai/Redis detectado e pronto.");
 
     console.log("🚀 [CONTROLLER] Monitoramento global ativo.");
+    console.log("🚀 [CONTROLLER] Testando alterações no Redis...");
 
   } catch (err) {
     console.error("💥 [FATAL] Erro ao subir controller:", err.message);
